@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Button, Input, Flex, Checkbox, Heading } from "@chakra-ui/react";
-
+import * as React from 'react';
+import { Button, Input, Flex, Checkbox, Heading } from '@chakra-ui/react';
+import { SetTodosType, TodosType } from '../store';
 function TodoListItems() {
   return (
     <>
@@ -15,7 +15,13 @@ function TodoListItems() {
   );
 }
 
-function TodoList() {
+function TodoList({
+  todos,
+  todoSet,
+}: {
+  todos: TodosType;
+  todoSet: SetTodosType;
+}) {
   return (
     <>
       <Heading>Todo List</Heading>
