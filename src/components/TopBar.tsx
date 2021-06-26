@@ -7,10 +7,17 @@ JSON source: https://raw.githubusercontent.com/jherr/todos-four-ways/master/data
 */
 
 function TopBar({ todoSet }: { todoSet: SetTodosType }) {
+  const onLoad = () => {
+    fetch(
+      'https://raw.githubusercontent.com/jherr/todos-four-ways/master/data/todos.json'
+    )
+      .then((res) => res.json())
+      .then((data) => todoSet(data));
+  };
   return (
     <Grid pt={2} templateColumns="1fr 1fr" columnGap="3">
       <ColorModeSwitcher />
-      <Button>Load</Button>
+      <Button onClick={onLoad}>Load</Button>
     </Grid>
   );
 }
